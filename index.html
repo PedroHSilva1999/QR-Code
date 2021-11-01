@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QrCode</title>
+    <style>
+        #conteiner{
+            width: 500px;
+            margin: 0 auto;
+            text-align:center ;
+        }
+
+        textarea{
+            width: 200px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div id="conteiner">
+    <h1>Crie seu Qr Code</h1>
+    <p>Coloque uma URL e crie seu Qr Code</p>
+
+    <textarea maxlength="556" rows="4"></textarea>
+    <br>
+    <button onclick="gerarQrCode()">Gerar QR Code</button>
+    <br>
+    <img id="qrCodeImg">
+
+</div>
+
+
+
+    <script>
+        function gerarQrCode(){
+            let inputUsuario = document.querySelector('textarea').value
+            let GoogleChartApi = 'https://chart.googleapis.com/chart?cht=qr&chs=300x300&chld=H&chl='
+            let conteudo = GoogleChartApi  +encodeURIComponent(inputUsuario)
+            document.getElementById('qrCodeImg').src = conteudo
+        }
+
+    </script>
+</body>
+</html>
